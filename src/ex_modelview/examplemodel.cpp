@@ -55,7 +55,7 @@ QVariant ExampleModel::data(const QModelIndex &index, int role) const
     return QVariant();
 }
 
-void ExampleModel::fillDataTableFromFile()
+void ExampleModel::fillDataTableFromFile(QString path)
 {
     QString path = "E:/week18cpp2021-modelview-212-2/data/titanic.csv";
     QFile inputFile(path);
