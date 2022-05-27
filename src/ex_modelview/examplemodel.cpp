@@ -1,5 +1,6 @@
 #include "examplemodel.h"
 #include <QFile>
+#include <QTextStream>
 
 ExampleModel::ExampleModel(QObject *parent)
     : QAbstractTableModel(parent)
@@ -18,6 +19,28 @@ void ExampleModel::fillDataTable()
         }
         dataTable.append(newRow);
     }
+}
+
+void ExampleModel::fillDataTableFromFile(QString path)
+{
+    //QString path = "E:/week18cpp2021-modelview-212-2/data/titanic.csv";
+    QFile inputFile(path);
+    inputFile.open(QFile::ReadOnly | QFile::Text);
+    QTextStream inputStream(&inputFile);
+
+    QString firstline = inputStream.readLine();
+
+    while(!inputStream.atEnd())
+    {
+        QString line = inputStream.readLine();
+
+        QList<QString> dataRow;
+        for (QString& item : line.split(",")) {
+            dataRow.append(item);
+        }
+        dataTable.append(dataRow);
+    }
+    inputFile.close();
 }
 
 
@@ -55,27 +78,7 @@ QVariant ExampleModel::data(const QModelIndex &index, int role) const
     return QVariant();
 }
 
-void ExampleModel::fillDataTableFromFile(QString path)
-{
-    QString path = "E:/week18cpp2021-modelview-212-2/data/titanic.csv";
-    QFile inputFile(path);
-    inputFile.open(QFile::ReadOnly | QFile::Text);
-    QTextStream inputStream(&inputFile);
 
-    QString firstline = inputStream.readLine();
-
-    while(!inputStream.atEnd())
-    {
-        QString line = inputStream.readLine();
-
-        QList<QString> dataRow;
-        for (QString& item : line.split(",")) {
-            dataRow.append(item);
-        }
-        dataTable.append(dataRow);
-    }
-    inputFile.close();
-}
 
 bool ExampleModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
