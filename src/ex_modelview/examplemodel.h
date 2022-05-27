@@ -23,6 +23,7 @@ public:
 
     void fillDataTable();
     void fillDataTableFromFile();
+    void fillDataTableFromFile(QString path);
 
 
 private:
