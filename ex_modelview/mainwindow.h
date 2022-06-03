@@ -23,7 +23,7 @@ private slots:
     
     void on_spinBox_valueChanged(int arg1);
     
-   // void on_removeRowButton_clicked();
+    void on_removeRowButton_clicked();
 
 private:
     size_t _shownDetailsColumn;

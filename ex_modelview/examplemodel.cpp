@@ -106,3 +106,24 @@ void ExampleModel::appendRow(QList<QString> &row)
     endInsertRows();
 }
 
+bool ExampleModel::removeRow(const QString &name)
+{
+    bool found;
+    int idx = -1;
+    for(int i = 0; i < dataTable.size(); ++i)
+    {
+        if(dataTable[i][0] == name)
+        {
+            found = true;
+            idx = i;
+        }
+    }
+    if(!found)
+    {
+        return false;
+    }
+    beginRemoveRows(QModelIndex(), idx, idx);
+    dataTable.removeAt(idx);
+    endRemoveRows();
+}
+

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>293</width>
-    <height>442</height>
+    <width>304</width>
+    <height>427</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,6 +22,9 @@
      <height>28</height>
     </rect>
    </property>
+   <property name="placeholderText">
+    <string>Name</string>
+   </property>
   </widget>
   <widget class="QLineEdit" name="PClassLineEdit">
    <property name="geometry">
@@ -32,6 +35,12 @@
      <height>28</height>
     </rect>
    </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="placeholderText">
+    <string>Author</string>
+   </property>
   </widget>
   <widget class="QLineEdit" name="survivedLineEdit">
    <property name="geometry">
@@ -41,6 +50,12 @@
      <width>261</width>
      <height>28</height>
     </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="placeholderText">
+    <string>Rating</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="nameLineEdit">
@@ -55,6 +70,9 @@
    <property name="text">
     <string/>
    </property>
+   <property name="placeholderText">
+    <string>Number of reviews</string>
+   </property>
   </widget>
   <widget class="QLineEdit" name="ageLineEdit">
    <property name="geometry">
@@ -64,6 +82,12 @@
      <width>261</width>
      <height>28</height>
     </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="placeholderText">
+    <string>Year</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="sexLineEdit">
@@ -75,6 +99,12 @@
      <height>28</height>
     </rect>
    </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="placeholderText">
+    <string>Price</string>
+   </property>
   </widget>
   <widget class="QLineEdit" name="lineEdit">
    <property name="geometry">
@@ -84,6 +114,12 @@
      <width>261</width>
      <height>28</height>
     </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="placeholderText">
+    <string>Genre</string>
    </property>
   </widget>
   <widget class="QPushButton" name="okButton">

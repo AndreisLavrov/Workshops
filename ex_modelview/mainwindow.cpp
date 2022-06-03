@@ -10,7 +10,6 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    QObject::connect(ui->loadButton, SIGNAL(clicked()), this, SLOT(loadFile()));
     QObject::connect(ui->addRowButton, SIGNAL(clicked()), this, SLOT(addRowSlot()));
     QObject::connect(ui->actionLoad, SIGNAL(triggered()), this, SLOT(loadFile()));
     
@@ -19,11 +18,7 @@ MainWindow::MainWindow(QWidget *parent)
     
     _transposeModel = new QTransposeProxyModel(this);
     _transposeModel->setSourceModel(_exampleModel);
-    ui->tableDetailsView->setModel(_transposeModel);
-    for (int i = 1; i < _transposeModel->columnCount(); ++i)
-    {
-        ui->tableDetailsView->hideColumn(i);
-    }
+
     _shownDetailsColumn = 0;
 }
 
@@ -39,11 +34,7 @@ void MainWindow::loadFile()
     _exampleModel->fillDataTableFromFile(fileName);
     
     ui->tableView->setModel(_exampleModel);
-    _transposeModel->setSourceModel(_exampleModel);
-    for (int i = 1; i < _transposeModel->columnCount(); ++i)
-    {
-        ui->tableDetailsView->hideColumn(i);
-    }
+
     _shownDetailsColumn = 0;
 }
 
@@ -66,18 +57,14 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_spinBox_valueChanged(int value)
 {
-    ui->tableDetailsView->hideColumn(_shownDetailsColumn);
-    _shownDetailsColumn = value;
-    ui->tableDetailsView->setColumnHidden(value, false);
+
 }
 
 
-/*void MainWindow::on_removeRowButton_clicked()
+void MainWindow::on_removeRowButton_clicked()
 {
-    Form d(this);
-    if (d.exec() == QDialog::Accepted)
-    {
-        _exampleModel->appendRow(d.newRow);
-    }
-}*/
+    QString name = ui ->lineEdit->text();
+    bool success = _exampleModel->removeRow(name);
+
+}
 

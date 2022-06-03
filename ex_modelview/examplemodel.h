@@ -25,6 +25,7 @@ public:
     
     void fillDataTableFromFile(QString path);
     void appendRow(QList<QString> &row);
+    bool removeRow(const QString &name);
 private:
     
     QList<QList<QString>> dataTable;
